@@ -40,6 +40,7 @@ _.extend(CacheStore.prototype, Session, {
     var self = this;
     _.each(this.keys, function(value, key) {
       Session.set(self.prefix(key), null);
+      delete this.keys[key];
     });
     if (this.persist)
       Meteor._localStorage.removeItem(this.id);
