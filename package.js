@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'forwarder:autoform-wizard',
+  name: 'serviewcare:autoform-wizard',
   summary: 'A multi step form component for AutoForm.',
   version: '0.6.4',
   git: 'https://github.com/forwarder/meteor-wizard.git'
