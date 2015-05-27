@@ -26,8 +26,8 @@ _.extend(CacheStore.prototype, Session, {
   
   set: function(key, value) {
     Session.set(this.prefix(key), value);
+    this.keys[key] = value;
     if (this.persist) {
-      this.keys[key] = value;
       Meteor._localStorage.setItem(this.id, EJSON.stringify(this.keys));
     }
   },
