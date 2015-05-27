@@ -179,6 +179,8 @@ WizardConstructor.prototype = {
         this.event.preventDefault();
         
         if(step.onSubmit) {
+          var activeIndex = _.indexOf(this._stepsByIndex, this._activeStepId);
+          this.setData(this._activeStepId, data);
           step.onSubmit.call(this, data, self);
         } else {
           self.next(data);
@@ -237,7 +239,7 @@ WizardConstructor.prototype = {
   previous: function() {
     var activeIndex = _.indexOf(this._stepsByIndex, this._activeStepId);
 
-    this.setData(this._activeStepId, AutoForm.getFormValues(this.activeStep(false).formId));
+    this.setData(this._activeStepId, AutoForm.getFormValues(this.activeStep(false).formId).insertDoc);
 
     this.show(activeIndex - 1);
   },
