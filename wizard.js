@@ -179,8 +179,8 @@ WizardConstructor.prototype = {
         this.event.preventDefault();
         
         if(step.onSubmit) {
-          var activeIndex = _.indexOf(this._stepsByIndex, this._activeStepId);
-          this.setData(this._activeStepId, data);
+          var activeIndex = _.indexOf(self._stepsByIndex, self._activeStepId);
+          self.setData(self._activeStepId, data);
           step.onSubmit.call(this, data, self);
         } else {
           self.next(data);
